@@ -132,12 +132,52 @@ public class webserver implements Runnable{
                                     }
                                 }else if(fileRequested.endsWith("/db/xml")){
                                     try {
+					    /*
+					    	XmlMapper xmlMapper = new XmlMapper();
+						File fileinxml = new File("dbxml.xml");
+						File file = new File(WEB_ROOT, FILE_NOT_FOUND);
+						int fileLength = (int) file.length();
+						String content = "application/xml";
+
+						out.println("HTTP/1.1 200 OK");
+						out.println("Location: " + fileRequested);
+						out.println("Server: Java HTTP Server from SSaurel : 1.0");
+						out.println("Date: " + new Date());
+						out.println("Content-type: " + "application/xml");
+						out.println("Content-length: " + content);
+						out.println(); // blank line between headers and content, very important !
+						out.flush(); // flush character output stream buffer
+					    */
+					    
                                         dbxml(fileRequested);
                                     } catch (SQLException ex) {
                                         Logger.getLogger(webserver.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                 }else if(fileRequested.endsWith("/db/json")){
                                     try {
+					    /*
+					    	File fileJSON = new File(WEB_ROOT, "dbjson.json");
+						ObjectMapper objectMapper = new ObjectMapper();
+						File fileinjson = new File("dbjson.json");
+						int fileLength = (int) fileJSON.length();
+						byte[] fileData = readFileData(fileJSON, fileLength);
+
+						dataOut.write(fileData, 0, fileLength);
+						dataOut.flush();
+
+						out.println("HTTP/1.1 200 OK");
+						out.println("Location: " + fileRequested);
+						out.println("Server: Java HTTP Server from SSaurel : 1.0");
+						out.println("Date: " + new Date());
+						out.println("Content-type: " + "application/xml");
+						out.println("Content-length: " + "application/json");
+						out.println(); // blank line between headers and content, very important !
+						out.flush(); // flush character output stream buffer
+
+						out.write(fileJSON.toString());
+						out.flush();
+						*/
+
                                         dbjson(fileRequested);
                                     } catch (SQLException ex) {
                                         Logger.getLogger(webserver.class.getName()).log(Level.SEVERE, null, ex);
